@@ -19,8 +19,14 @@ const handleRequest = async (request) => {
     data.count++;
     return new Response(await renderFile("count.eta", data), responseDetails);
   }
-
-  return new Response("Hello you!");
+  else if (url.pathname === "/meaning")
+  {
+    request.respond({ body: "Seeking truths beyond the meaning of life, you will find 43.", headers: responseHeaders });
+  } 
+  else 
+  {
+    request.respond({ body: "Nothing here yet.", headers: responseHeaders });
+  }
 };
 
 serve(handleRequest, { port: 7777 });

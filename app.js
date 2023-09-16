@@ -1,5 +1,5 @@
-import { serve } from "https://deno.land/std/http/server.ts";
-import { configure, renderFile } from "https://deno.land/x/dejs/mod.ts";
+import { serve } from "./deps.js";
+import { configure, renderFile } from "./deps.js";
 
 configure({
   views: `${Deno.cwd()}/views/`,
@@ -44,7 +44,6 @@ const handleRequest = async (request) => {
     request.respond({ body: "Nothing here yet.", headers: responseHeaders });
   }
   
-    request.respond({ body: "Nothing here yet.", headers: responseHeaders });
 };
 
 serve(handleRequest, { port: 7777 });
